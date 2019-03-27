@@ -3,29 +3,30 @@
 
 <h1>Wish List Items</h1>
 <h3>No Wish Items Exist</h3>
-{% for wish in wish_list %}
 
 <table class = "pure-table" class = "pure-table-striped">
     <!-- Render the inputs inside of <tr>s & <td>s -->
     {{ form.as_table }}
     <thead>
         <tr>
-            <th>Description: --</th>
+            <th>Description: </th>
             <th>Delete</th>
         </tr>
     </thead> 
     <tbody>
-        <tr>
             {% for wish in wishes %}
-            <td>{{ wishes.wish }}</td>
-            {% endfor %}
-            <td><a href = "#">X</a></td>
+        <tr>
+            
+            <td>{{ wish.description }}</td>
+            <td><a href = "">X</a></td>
+
         </tr>
+        {% endfor %}
+
     </tbody>
 </table>
-{% endfor %}
 <hr>
 <div>
-    <a href="{% url 'index' %}" class = 'pure-button'>Add Wish Item</a>
+    <a href="{% url 'wishes_create' %}" class = 'pure-button'>Add Wish Item</a>
 </div>
 {% endblock %}
