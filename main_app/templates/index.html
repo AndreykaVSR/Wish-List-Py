@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Add Wish Item</h1>
+<hr>
+<br>
+<form class = "pure-form" action="" method="POST"> 
+    Description: <textarea rows="4" cols="50" action = "" type="text" name="description" placeholder = "Type Your Wish Here"></textarea>
+    {% csrf_token %}
+<br>
+<div>
+    <a type = "submit" href="{% url 'wishes_create' %}" class = 'pure-button'  method = 'POST' >Add Item</a>
+</div>
+</form>
+{% endblock %}
