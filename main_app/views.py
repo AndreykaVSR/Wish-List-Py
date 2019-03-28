@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DeleteView
 from django.views.generic import ListView
 from .models import Wish
 
@@ -8,10 +8,14 @@ class WishList(ListView):
   model = Wish
 
 class WishCreate(CreateView):
-    print('Wish created')
+    # print('Wish created')
     model = Wish
     fields = ['description']
     success_url = '/'
+
+class WishDelete(DeleteView):
+  model = Wish
+  success_url = '/'
 
 def home(request):
     wishes = Wish.objects.all()
